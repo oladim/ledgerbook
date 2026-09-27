@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SECRETS_SCAN_OMIT_KEYS!,
     process.env.SECRETS_SCAN_OMIT_PATHS!,
     {
       cookies: {
