@@ -8,8 +8,8 @@ type CookieToSet = { name: string; value: string; options: CookieOptions };
 export async function createClient() {
   const cookieStore = await cookies();
   return createServerClient(
-    process.env.SECRETS_SCAN_OMIT_KEYS!,
-    process.env.SECRETS_SCAN_OMIT_PATHS!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {
