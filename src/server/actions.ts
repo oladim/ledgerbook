@@ -201,7 +201,7 @@ export async function sendReminderEmailAction(invoiceId: string, to: string): Pr
   const link = site ? `${site}/view/invoice/${invoiceId}` : "";
   const due = inv?.due_date ? new Date(inv.due_date).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) : "soon";
   const amount = "\u20a6" + bal.toLocaleString("en-NG", { minimumFractionDigits: 2 });
-  const from = process.env.EMAIL_FROM ?? "Ledgerbook <onboarding@resend.dev>";
+  const from = process.env.EMAIL_FROM;
   const subject = `Reminder: Invoice ${inv?.number ?? ""} from ${org?.name ?? "us"}`;
   const html = `<div style="font-family:Arial,sans-serif;font-size:14px;color:#111">
     <p>Hi ${inv?.customer_name ?? "there"},</p>
